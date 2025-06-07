@@ -1,10 +1,10 @@
 
-import android.provider.SyncStateContract.Constants
 import com.subhash.movieplus.data.remote.models.response.TrendingMovieListResponse
 import com.subhash.movieplus.data.remote.models.response.MovieDetailResponse
 import com.subhash.movieplus.data.remote.models.response.cast.CastsResponse
 import com.subhash.movieplus.data.remote.models.response.now_playing_movies.NowPlayingMovieListResponse
 import com.subhash.movieplus.data.remote.models.response.upcoming_movies.UpcomingMovieListResponse
+import com.subhash.movieplus.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
