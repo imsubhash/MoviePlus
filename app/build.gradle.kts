@@ -1,3 +1,4 @@
+import java.util.Properties
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -8,7 +9,7 @@ plugins {
 android {
     namespace = "com.subhash.movieplus"
     compileSdk = 35
-
+    buildFeatures.buildConfig = true
     defaultConfig {
         applicationId = "com.subhash.movieplus"
         minSdk = 26
@@ -17,6 +18,18 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        val localPropertiesFile = rootProject.file("local.properties")
+        val localProperties = Properties().apply {
+            localPropertiesFile.inputStream().use { load(it) }
+        }
+
+        fun getLocalProperty(key: String): String {
+            return localProperties.getProperty(key)?.takeIf { it.isNotBlank() }
+                ?: throw GradleException("Missing property '$key' in local.properties")
+        }
+
+        buildConfigField("String", "API_KEY", "\"${getLocalProperty("API_KEY")}\"")
+        buildConfigField("String", "TOKEN", "\"${getLocalProperty("TOKEN")}\"")
     }
 
     buildTypes {
