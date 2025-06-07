@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.subhash.movieplus.data.remote.datasources.MovieService
 import com.subhash.movieplus.data.remote.datasources.paging.MoviePagingSource
 import com.subhash.movieplus.data.remote.models.response.MovieDetailResponse
 import com.subhash.movieplus.data.remote.models.response.TrendingMovieListResponse

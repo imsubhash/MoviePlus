@@ -2,6 +2,7 @@ package com.subhash.movieplus.data.remote.datasources.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.subhash.movieplus.data.remote.datasources.MovieService
 import com.subhash.movieplus.data.remote.models.response.TrendingMovieResponse
 
 class MoviePagingSource(private val apiService: MovieService) :
