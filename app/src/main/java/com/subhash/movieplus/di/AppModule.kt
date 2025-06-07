@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.subhash.movieplus.BuildConfig
 import com.subhash.movieplus.data.local.datasources.database.MoviesDatabase
 import com.subhash.movieplus.data.local.models.SavedMovieEntitiy
 import com.subhash.movieplus.data.remote.datasources.MovieService
@@ -41,7 +42,7 @@ object AppModule {
             .addHeader("accept", "application/json")
             .addHeader(
                 "Authorization",
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2M2I4MDAzOWEzNDM2ZWY3YjZkNGNhMmZiNDU3YjEzYyIsInN1YiI6IjY0YzAzMTBmMDE3NTdmMDBhZDc0MWY2YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xPsO7Bkp9SyLMCBDxQH-PcdjU8XJNbiwzm5cILpY4kg"
+                "Bearer ${BuildConfig.TOKEN}"
             )
             .build()
         chain.proceed(request)
