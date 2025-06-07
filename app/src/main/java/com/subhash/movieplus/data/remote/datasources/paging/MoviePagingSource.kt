@@ -3,7 +3,6 @@ package com.subhash.movieplus.data.remote.datasources.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.subhash.movieplus.data.remote.models.response.TrendingMovieResponse
-import com.subhash.movieplus.data.remote.models.response.TrendingMovieListResponse
 
 class MoviePagingSource(private val apiService: MovieService) :
     PagingSource<Int, TrendingMovieResponse>() {
@@ -16,7 +15,7 @@ class MoviePagingSource(private val apiService: MovieService) :
             val position = params.key ?: TMDB_STARTING_PAGE_INDEX
             val response = apiService.fetchAllTrendingnMovie(position)
             LoadResult.Page(
-                data = TrendingMovieListResponse.results!!, prevKey = if (position == 1) null else position - 1,
+                data = response.results!!, prevKey = if (position == 1) null else position - 1,
                 nextKey = position + 1
             )
         } catch (e: Exception) {
