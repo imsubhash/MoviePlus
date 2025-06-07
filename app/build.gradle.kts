@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
 
@@ -68,7 +68,7 @@ dependencies {
 
     // hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     //coroutine
     implementation(libs.kotlinx.coroutines.android)
@@ -80,12 +80,8 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation(libs.androidx.room.ktx)
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
 
     //paging
     implementation(libs.androidx.paging.runtime.ktx)
-}
-
-kapt {
-    correctErrorTypes = true
 }
