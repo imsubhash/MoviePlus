@@ -90,14 +90,14 @@ class MovieDetailViewModel @Inject constructor(
 
                         Log.i("MovieDetailViewModel", "moviDetailResponse : $movieDetailResponse")
                         movieDetail = MovieDetail(
-                            title = movieDetailResponse.title!!,
-                            id = movieDetailResponse.id!!,
-                            voteAverage = movieDetailResponse.voteAverage!!,
-                            originalLanguage = movieDetailResponse.originalLanguage!!,
-                            backdropPath = movieDetailResponse.backdropPath!!,
-                            overview = movieDetailResponse.overview!!,
+                            title = movieDetailResponse.title?:"",
+                            id = movieDetailResponse.id?:0,
+                            voteAverage = movieDetailResponse.voteAverage?:0.0,
+                            originalLanguage = movieDetailResponse.originalLanguage?:"",
+                            backdropPath = movieDetailResponse.backdropPath?:"",
+                            overview = movieDetailResponse.overview?:"",
                             genres = genres,
-                            posterPath = movieDetailResponse.posterPath!!
+                            posterPath = movieDetailResponse.posterPath?:""
                         )
 
                         movieDetailState.value = ViewState.success(data = movieDetail)

@@ -265,8 +265,8 @@ class MovieListViewModel @Inject constructor(
             voteAverage = trendingMovie.voteAverage,
             originalLanguage = trendingMovie.originalLanguage,
             overview = trendingMovie.overview,
-            backdropPath = trendingMovie.backdropPath!!,
-            posterPath = trendingMovie.posterPath!!,
+            backdropPath = trendingMovie.backdropPath ?: "",
+            posterPath = trendingMovie.posterPath ?: "",
         )
 
         movieLocalRepository.saveMovie(savedMovieEntity)
