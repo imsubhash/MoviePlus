@@ -142,7 +142,9 @@ class MovieDetailFragment : Fragment() {
         if (movieDetailViewModel.isMovieSaved(movieDetail)) {
             binding.movieDetailSaveBtn.setImageResource(R.drawable.ic_unsaved)
             movieDetailViewModel.unsaveMovie(movieDetail)
+            Toast.makeText(requireContext(), "Remove from saved", Toast.LENGTH_SHORT).show()
         } else {
+            Toast.makeText(requireContext(), "Saved", Toast.LENGTH_SHORT).show()
             binding.movieDetailSaveBtn.setImageResource(R.drawable.ic_saved)
             movieDetailViewModel.saveMovie(movieDetail)
         }
